@@ -21,4 +21,36 @@ From a business perspective, if we can predict a movie's rating based on the pro
 
 ## Evaluation and Conclusion
 
-With our initial linear regression and Random Forest Models, the training and predictions are not sufficiently accurate to be helpful. My thinking is that the cleaned-up input features are not very predictive of the rating result. To enhance this prediction model, I would like to incorporate movie budget information into the input features and explore additional models to further develop this study.  Eliminating the budget factor from the input feature due to the presence of significant missing data points may be a mistake in this study.  I want to explore the dataset more to see if any other meaningful info can be derived. 
+With the inclusion of more numeric fields: meta_score, votes, etc.  the predictive models yield better results than Part1 models. However that budget and gross does not seem to be of importance in predicting the ratings.  The Lasso Regression yield similar results with the Linear Regression model.  The Ridge Regression does not seem to be working correctly, need further investigation if I am using the correct parameters. Just like the part 1 investigation, the Random Forest model still yield the best results and provide the best predictive model.  For further study, I would like to do further statistical analysis to find answers to questions like: Share of total gross earnings by Genre, Top 10 movies with highest ratings, Top 10 movies with highest worldwide gross earnings. etc.  
+
+|      |                Model |   R^2 Score |  Accuracy (%) | Mean Squared Error | Root MSE | Mean Absolute Error |
+| ---: | -------------------: | ----------: | ------------: | -----------------: | -------: | ------------------- |
+|    0 |    Linear Regression |      0.1951 |  1.951170e+01 |             0.8798 |   0.9380 | 0.6998              |
+|    1 |     Lasso Regression |      0.1951 |  1.950550e+01 |             0.8799 |   0.9380 | 0.6997              |
+|    2 |     Ridge Regression | -30748.8473 | -3.074885e+06 |         33613.0637 | 183.3387 | 13.0044             |
+|    3 | Random Forest (Base) |      0.4781 |  4.780770e+01 |             0.5705 |   0.7553 | 0.5396              |
+
+| Features |        Importance (%) |       |
+| -------: | --------------------: | ----- |
+|       15 |            meta_score | 15.37 |
+|       14 |                 votes | 7.52  |
+|        9 |        awards_content | 7.30  |
+|       20 |          release_date | 6.56  |
+|       10 |                genres | 6.08  |
+|       11 |             languages | 6.07  |
+|        2 |            Movie_Link | 5.88  |
+|        6 |      countries_origin | 5.05  |
+|        5 |                 stars | 4.64  |
+|        8 |  production_companies | 4.60  |
+|        4 |             directors | 4.40  |
+|        1 |           description | 4.35  |
+|        3 |               writers | 4.25  |
+|       12 |                  year | 3.99  |
+|        7 |     filming_locations | 3.24  |
+|       13 |              duration | 2.48  |
+|        0 |                   MPA | 2.07  |
+|       18 |       gross_worldwide | 1.81  |
+|       16 |                budget | 1.67  |
+|       19 |       gross_us_canada | 1.61  |
+|       17 | opening_weekend_gross | 1.08  |
+
