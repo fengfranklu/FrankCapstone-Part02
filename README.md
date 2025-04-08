@@ -54,3 +54,4 @@ With the inclusion of more numeric fields: meta_score, votes, etc.  the predicti
 |       19 |       gross_us_canada | 1.61  |
 |       17 | opening_weekend_gross | 1.08  |
 
+![image](https://github.com/user-attachments/assets/9fef8e64-92cc-4564-a727-37a1c29991ea)
